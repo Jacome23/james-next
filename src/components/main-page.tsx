@@ -115,12 +115,12 @@ const About = () => {
 
           <div className="space-y-6">
             <p className="text-lg text-muted-foreground">
-              I'm a developer with over 4 years of experience in creating digital solutions that make a
+              {"I'm"} a developer with over 4 years of experience in creating digital solutions that make a
               difference. I love turning complex problems into simple but meaningful solutions.
             </p>
 
             <p className="text-lg text-muted-foreground">
-              When I'm not coding, you can find me exploring new technologies, or
+              When {"I'm"} not coding, you can find me exploring new technologies, or
               sharing knowledge with the developer community.
             </p>
 
@@ -309,7 +309,7 @@ const Contact = () => {
             <div>
               <h3 className="text-2xl font-semibold mb-4">{"Let's work together"}</h3>
               <p className="text-muted-foreground mb-6">
-                I'm always interested in new opportunities and exciting projects. Whether you have a question or just
+                {"I'm"}always interested in new opportunities and exciting projects. Whether you have a question or just
                 want to say hi, feel free to reach out!
               </p>
             </div>
