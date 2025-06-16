@@ -22,7 +22,7 @@ const Me = () => {
           {/* Text Content */}
           <div className="text-center lg:text-left">
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6">
-              Hi, I'm{" "}
+              {'Hi, I am '}
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 James Nunieza
               </span>

@@ -64,21 +64,21 @@ export default function Dashboard() {
               <div className="flex items-center space-x-4">
                 <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
                 <div className="flex-1 space-y-1">
-                  <p className="text-sm font-medium leading-none">New project "Design System" created</p>
+                  <p className="text-sm font-medium leading-none">{'New project "Design System" created'}</p>
                   <p className="text-sm text-muted-foreground">2 hours ago</p>
                 </div>
               </div>
               <div className="flex items-center space-x-4">
                 <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                 <div className="flex-1 space-y-1">
-                  <p className="text-sm font-medium leading-none">User "Sarah Johnson" joined the team</p>
+                  <p className="text-sm font-medium leading-none">{'User "Sarah Johnson" joined the team'}</p>
                   <p className="text-sm text-muted-foreground">4 hours ago</p>
                 </div>
               </div>
               <div className="flex items-center space-x-4">
                 <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
                 <div className="flex-1 space-y-1">
-                  <p className="text-sm font-medium leading-none">Project "Marketing Campaign" updated</p>
+                  <p className="text-sm font-medium leading-none">{'Project "Marketing Campaign" updated'}</p>
                   <p className="text-sm text-muted-foreground">6 hours ago</p>
                 </div>
               </div>
