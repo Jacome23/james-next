@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { SidebarInset, SidebarProvider,SidebarTrigger } from "@/components/ui/sidebar"
+import { AppSidebar } from "@/components/app-sidebar"
+import { AppNavbar } from "@/components/app-navbar";
+import { Facebook, Mail, Github, Linkedin } from "lucide-react";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +32,43 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <SidebarProvider>
+          <AppSidebar/>
+          <SidebarInset>
+            <header className="sticky top-0 border-b bg-white">
+              <div className="flex h-12 items-center gap-2 px-4">
+                <SidebarTrigger className="-ml-1 flex-none" />
+                <div className="grow"/>
+                <AppNavbar/>
+                <Link href="https://github.com/Jacome23" className="text-muted-foreground hover:text-foreground transition-colors">
+                  <Github className="h-6 w-6" />
+                  <span className="sr-only">Github</span>
+                </Link>
+                <Link href="https://www.facebook.com/james.nunieza1" className="text-muted-foreground hover:text-foreground transition-colors">
+                  <Facebook className="h-6 w-6" />
+                  <span className="sr-only">Facebook</span>
+                </Link>
+                <Link
+                  href="https://www.linkedin.com/in/james-nunieza-bb6717199/"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <Linkedin className="h-6 w-6" />
+                  <span className="sr-only">LinkedIn</span>
+                </Link>
+                <Link
+                  href="mailto:your.nuniezajames10@gmail.com"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <Mail className="h-6 w-6" />
+                  <span className="sr-only">Email</span>
+                </Link>
+              </div>
+            </header>
+            <main>
+              {children}
+            </main>
+          </SidebarInset>
+        </SidebarProvider>
       </body>
     </html>
   );
