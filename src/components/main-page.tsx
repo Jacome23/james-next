@@ -13,6 +13,7 @@ import { Progress } from "@/components/ui/progress"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
 import Image from "next/image"
+import { DialogOut } from "./dialog"
 
 const Me = () => {
   return (
@@ -22,43 +23,20 @@ const Me = () => {
           {/* Text Content */}
           <div className="text-center lg:text-left">
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6">
-              {'Hi, I am '}
+              Hi I&apos;m {' '}
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 James Nunieza
               </span>
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground mb-8">
-              A passionate developer creating amazing digital experiences. Specializing in modern web technologies and
-              intuitive user-centered designs.
+              I'm a passionate Web Developer who likes to make amazing digital experiences specializing in modern web technologies and
+              intuitive user-friendly designs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center mb-12">
               <Button size="lg" asChild>
                 <Link href="#projects">View My Work</Link>
               </Button>
-              <Button variant="outline" size="lg" asChild>
-                <Link href="#contact">Get In Touch</Link>
-              </Button>
-            </div>
-
-            <div className="flex justify-center lg:justify-start space-x-6 mb-12">
-              <Link href="https://github.com" className="text-muted-foreground hover:text-foreground transition-colors">
-                <Github className="h-6 w-6" />
-                <span className="sr-only">GitHub</span>
-              </Link>
-              <Link
-                href="https://linkedin.com"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <Linkedin className="h-6 w-6" />
-                <span className="sr-only">LinkedIn</span>
-              </Link>
-              <Link
-                href="mailto:your.email@example.com"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <Mail className="h-6 w-6" />
-                <span className="sr-only">Email</span>
-              </Link>
+              <DialogOut size="lg"/>
             </div>
           </div>
 
@@ -100,8 +78,8 @@ const About = () => {
         <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">About Me</h2>
 
         <div className="grid md:grid-cols-2 gap-8 items-center">
-          <div>
-            <div className="w-64 mx-auto bg-muted rounded-full flex items-center justify-center">
+          <div className="space-y-6">
+            <div className="w-100 mx-auto bg-muted rounded-full flex items-center justify-center">
               <Image
                 src="/assets/james-osaka.jpg"
                 alt="James Nunieza - Profile Picture"
@@ -115,13 +93,11 @@ const About = () => {
 
           <div className="space-y-6">
             <p className="text-lg text-muted-foreground">
-              {"I'm"} a developer with over 4 years of experience in creating digital solutions that make a
-              difference. I love turning complex problems into simple but meaningful solutions.
+              I&apos;m a developer with over 4 years of experience in creating digital solutions that help businesses simplify their work. I love turning complex problems into simple but meaningful solutions.
             </p>
 
             <p className="text-lg text-muted-foreground">
-              When {"I'm"} not coding, you can find me exploring new technologies, or
-              sharing knowledge with the developer community.
+              When I&apos;m not coding, I usually do outdoor activities like running and climbing. Sometimes exploring as well.
             </p>
 
             <Card>
@@ -129,9 +105,9 @@ const About = () => {
                 <h3 className="font-semibold mb-4">Quick Facts</h3>
                 <ul className="space-y-2 text-muted-foreground">
                   <li>📍 I live in Las Pinas City, Philippines</li>
-                  <li>🎓 Degree in Electronics Engineering</li>
-                  <li>💼 4+ years of experience</li>
-                  <li>🌟 3+ projects completed</li>
+                  <li>🎓 I have a Degree in Electronics Engineering</li>
+                  <li>💼 4+ years of experience as a Full Stack Developer</li>
+                  <li>🌟 2 ongoing big projects being done</li>
                 </ul>
               </CardContent>
             </Card>
@@ -184,7 +160,7 @@ const skillCategories = [
   },
 ]
 
-const Skills = () => {
+const Skills = () => {  
   return (
     <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto max-w-4xl">
@@ -218,28 +194,22 @@ const Skills = () => {
 const projects = [
   {
     title: "Workforce Planning Tool",
-    description: "A full-stack Resourcing Solution for Arcadis used for Project Management and Workload Forecasting.",
+    description: "A Resourcing Solution for Arcadis used for Project and Resource Management, Workload Forecasting, and many more!",
     image: "/assets/projects/wpt.png",
-    technologies: ["Vue", "Node.js", "Express", "Sequelize", "MSSQL"],
-    liveUrl: "",
-    githubUrl: "",
+    technologies: ["Vue", "Node.js", "Express", "Sequelize", "MSSQL","ExcelJS",],
   },
-  // {
-  //   title: "Task Management App",
-  //   description: "A collaborative task management application with real-time updates and team collaboration features.",
-  //   image: "/placeholder.svg?height=200&width=400",
-  //   technologies: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"],
-  //   liveUrl: "https://example.com",
-  //   githubUrl: "https://github.com/username/project",
-  // },
-  // {
-  //   title: "Weather Dashboard",
-  //   description: "A beautiful weather dashboard with location-based forecasts and interactive charts.",
-  //   image: "/placeholder.svg?height=200&width=400",
-  //   technologies: ["Vue.js", "Chart.js", "Weather API", "Tailwind CSS"],
-  //   liveUrl: "https://example.com",
-  //   githubUrl: "https://github.com/username/project",
-  // },
+  {
+    title: "Contractable",
+    description: "A Project Management Finance Solution for businesses especially in the construction field.",
+    image: "/assets/projects/contractable.png",
+    technologies: ["React", "Node.js", "Express", "Sequelize", "PostgreSQL"],
+  },
+  {
+    title: "Yachtfull",
+    description: "I helped someone do an enhancement here. This website sells yachts.",
+    image: "/assets/projects/yachtfull.png",
+    technologies: ["Vue"],
+  },
 ]
 
 const Projects = () => {
@@ -307,10 +277,9 @@ const Contact = () => {
         <div className="grid md:grid-cols-2 gap-8">
           <div className="space-y-6">
             <div>
-              <h3 className="text-2xl font-semibold mb-4">{"Let's work together"}</h3>
+              <h3 className="text-2xl font-semibold mb-4">Let&apos;s work together</h3>
               <p className="text-muted-foreground mb-6">
-                {"I'm"}always interested in new opportunities and exciting projects. Whether you have a question or just
-                want to say hi, feel free to reach out!
+                I&apos;m always interested in new opportunities and exciting projects. Whether you have a question or just want to say hi, feel free to reach out!
               </p>
             </div>
 

@@ -55,7 +55,7 @@ function useSidebar() {
 }
 
 function SidebarProvider({
-  defaultOpen = true,
+  defaultOpen = false,
   open: openProp,
   onOpenChange: setOpenProp,
   className,
@@ -256,9 +256,10 @@ function Sidebar({
 
 function SidebarTrigger({
   className,
+  toolTipName,
   onClick,
   ...props
-}: React.ComponentProps<typeof Button>) {
+}: React.ComponentProps<typeof Button> & {toolTipName:string}) {
   const { toggleSidebar } = useSidebar()
 
   return (
@@ -281,7 +282,7 @@ function SidebarTrigger({
         </Button>
       </TooltipTrigger>
       <TooltipContent>
-        <>Change Sidebar</>
+        <>{toolTipName}</>
       </TooltipContent>
     </Tooltip>
   )
