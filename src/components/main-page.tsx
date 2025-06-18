@@ -29,7 +29,7 @@ const Me = () => {
               </span>
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground mb-8">
-              I'm a passionate Web Developer who likes to make amazing digital experiences specializing in modern web technologies and
+              I&apos;m a passionate Web Developer who likes to make amazing digital experiences specializing in modern web technologies and
               intuitive user-friendly designs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center mb-12">
