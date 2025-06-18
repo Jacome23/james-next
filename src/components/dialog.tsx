@@ -130,7 +130,9 @@ export function DialogOut({ size }: DialogOutProps) {
           <DialogClose asChild>
             <Button variant="outline">Cancel</Button>
           </DialogClose>
-          <Button type="submit" onClick={send}>Submit</Button>
+          <DialogClose asChild>
+            <Button type="submit" onClick={send}>Submit</Button>
+          </DialogClose>
         </DialogFooter>
       </DialogContent>
     </Dialog>

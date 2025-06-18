@@ -1,6 +1,6 @@
 "use client"
 
-import { Home, Inbox, Settings, GitGraphIcon } from "lucide-react"
+import { Home, Inbox, GitGraphIcon } from "lucide-react"
 import Link from "next/link"
 
 import {
@@ -16,24 +16,19 @@ import {
 // Menu items.
 const items = [
   {
-    title: "Home",
+    title: "Home (My Portfolio)",
     url: "/",
     icon: Home,
   },
   {
-    title: "Dashboard",
+    title: "Sample Dashboard",
     url: "/dashboard",
     icon: GitGraphIcon,
   },
   {
-    title: "Projects",
+    title: "Sample Projects",
     url: "/projects",
     icon: Inbox,
-  },
-  {
-    title: "Settings",
-    url: "/settings",
-    icon: Settings,
   },
 ]
 
@@ -42,7 +37,6 @@ export function AppSidebar() {
     <Sidebar>
       <SidebarContent>
         <SidebarGroup>
-          {/* <SidebarGroupLabel>James Nunieza</SidebarGroupLabel> */}
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (

@@ -85,7 +85,7 @@ export default function RootLayout({
           <SidebarInset>
             <header className="sticky top-0 border-b bg-white">
               <div className="flex h-12 items-center gap-2 px-4">
-                <SidebarTrigger toolTipName="Click me to show a sidebar" className="-ml-1 flex-none" />
+                <SidebarTrigger toolTipName="Click me to show a sidebar. I put templates in there for examples" className="-ml-1 flex-none" />
                 <div className="grow"/>
                 <DialogOut/>
                 {links.map(({href,linkName,download,Component}) =>{
