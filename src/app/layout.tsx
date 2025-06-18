@@ -31,33 +31,39 @@ export const metadata: Metadata = {
 type LinkTypes = {
   href: string,
   linkName: string,
+  download: boolean,
   Component: React.ComponentType<React.SVGProps<SVGSVGElement>>
 }
 
 const links: LinkTypes[] = [
   {
     href: "/assets/resume/James-Nunieza.pdf",
-    linkName:"Download My Resume",
+    linkName:"Check My Resume",
+    download: true,
     Component: File
   },
   {
     href:"https://github.com/Jacome23",
     linkName:"Github",
+    download: false,
     Component: Github
   },
   {
     href: "https://www.linkedin.com/in/james-nunieza-bb6717199/",
     linkName:"LinkedIn",
+    download: false,
     Component: Linkedin
   },
   {
     href: "https://www.facebook.com/james.nunieza1",
     linkName:"Facebook",
+    download: false,
     Component: Facebook
   },
   {
     href: "mailto:your.nuniezajames10@gmail.com",
     linkName:"Email Me",
+    download: false,
     Component: Mail
   }
 ]
@@ -82,12 +88,13 @@ export default function RootLayout({
                 <SidebarTrigger toolTipName="Click me to show a sidebar" className="-ml-1 flex-none" />
                 <div className="grow"/>
                 <DialogOut/>
-                {links.map(({href,linkName,Component}) =>{
+                {links.map(({href,linkName,download,Component}) =>{
                   return <div key={href}>
                     <Tooltip>
                       <TooltipTrigger>
                         <Link target="_blank" 
                               href={href} 
+                              download={download}
                               className="text-muted-foreground hover:text-foreground transition-colors">
                           <Component className="h-6 w-6" />
                         </Link>

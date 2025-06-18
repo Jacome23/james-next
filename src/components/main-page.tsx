@@ -34,7 +34,7 @@ const Me = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center mb-12">
               <Button size="lg" asChild>
-                <Link href="#projects">View My Work</Link>
+                <Link href="#projects">Check my Projects</Link>
               </Button>
               <DialogOut size="lg"/>
             </div>
@@ -78,22 +78,22 @@ const About = () => {
         <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">About Me</h2>
 
         <div className="grid md:grid-cols-2 gap-8 items-center">
-          <div className="space-y-6">
-            <div className="w-100 mx-auto bg-muted rounded-full flex items-center justify-center">
+          <div className="space-y-6 w-full h-full bg-muted rounded-full">
+            {/* <div className="w-100 mx-auto bg-muted rounded-full flex items-center justify-center"> */}
               <Image
                 src="/assets/james-osaka.jpg"
                 alt="James Nunieza - Profile Picture"
                 width={400}
-                height={450}
+                height={650}
                 className="object-cover w-full h-full"
                 priority
               />
-            </div>
+            {/* </div> */}
           </div>
 
           <div className="space-y-6">
             <p className="text-lg text-muted-foreground">
-              I&apos;m a developer with over 4 years of experience in creating digital solutions that help businesses simplify their work. I love turning complex problems into simple but meaningful solutions.
+              I&apos;m a web developer with over 4 years of experience in creating digital solutions that help businesses simplify their work. I love turning complex problems into simple but meaningful solutions.
             </p>
 
             <p className="text-lg text-muted-foreground">

@@ -22,6 +22,7 @@ import {
 } from "./ui/card";
 import { Textarea } from "./ui/textarea";
 import { useState } from "react";
+import { sendEmail } from "@/lib/resend";
 
 type DialogOutProps = {
   size?: "default" | "sm" | "lg" | "icon"; // depends on your Button size options
@@ -42,12 +43,15 @@ export function DialogOut({ size }: DialogOutProps) {
       [e.target.name]: e.target.value,
     });
   };
+  const send = () => {
+    sendEmail(formData);
+  }
 
   return (
     <Dialog>
       <DialogTrigger asChild>
         <Button variant="outline" size={size}>
-          Let&apos;s Get In Touch!
+          Contact Me
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[800px]">
@@ -93,40 +97,31 @@ export function DialogOut({ size }: DialogOutProps) {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="space-y-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="name">Name</Label>
-                    <Input
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                    />
+                <form>
+                  <div className="space-y-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="name">Name</Label>
+                      <Input
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        required
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="message">Message</Label>
+                      <Textarea
+                        id="message"
+                        name="message"
+                        rows={4}
+                        value={formData.message}
+                        onChange={handleChange}
+                        required
+                      />
+                    </div>
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email</Label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="message">Message</Label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      rows={4}
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
-                </div>
+                </form>
               </CardContent>
             </Card>
           </div>
@@ -135,7 +130,7 @@ export function DialogOut({ size }: DialogOutProps) {
           <DialogClose asChild>
             <Button variant="outline">Cancel</Button>
           </DialogClose>
-          <Button type="submit">Submit</Button>
+          <Button type="submit" onClick={send}>Submit</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>
