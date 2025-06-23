@@ -11,6 +11,7 @@ import { AppSidebar } from "@/components/app-sidebar"
 import { Facebook, Mail, Github, Linkedin, File } from "lucide-react";
 import Link from "next/link";
 import { DialogOut } from "@/components/dialog";
+import { Toaster } from "sonner";
 
 
 const geistSans = Geist({
@@ -112,6 +113,7 @@ export default function RootLayout({
             </main>
           </SidebarInset>
         </SidebarProvider>
+        <Toaster/>
       </body>
     </html>
   );

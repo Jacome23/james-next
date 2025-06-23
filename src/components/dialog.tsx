@@ -23,6 +23,7 @@ import {
 import { Textarea } from "./ui/textarea";
 import { useState } from "react";
 import { sendEmail } from "@/lib/resend";
+import { toast } from "sonner";
 
 type DialogOutProps = {
   size?: "default" | "sm" | "lg" | "icon"; // depends on your Button size options
@@ -45,6 +46,7 @@ export function DialogOut({ size }: DialogOutProps) {
   };
   const send = () => {
     sendEmail(formData);
+    toast("Thanks for sending me an Email. I'll get back to you as soon as possible :D")
   }
 
   return (
@@ -67,7 +69,7 @@ export function DialogOut({ size }: DialogOutProps) {
             <div className="space-y-6">
               <div>
                 <h3 className="text-2xl font-semibold mb-4">
-                  Let&apos;s work together
+                  Let&apos;s work togethersss
                 </h3>
                 <p className="text-muted-foreground mb-6">
                   I&apos;m always interested in new opportunities and exciting
@@ -105,6 +107,16 @@ export function DialogOut({ size }: DialogOutProps) {
                         id="name"
                         name="name"
                         value={formData.name}
+                        onChange={handleChange}
+                        required
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="name">Email</Label>
+                      <Input
+                        id="email"
+                        name="email"
+                        value={formData.email}
                         onChange={handleChange}
                         required
                       />
