@@ -69,7 +69,7 @@ export function DialogOut({ size }: DialogOutProps) {
             <div className="space-y-6">
               <div>
                 <h3 className="text-2xl font-semibold mb-4">
-                  Let&apos;s work togethersss
+                  Let&apos;s work together
                 </h3>
                 <p className="text-muted-foreground mb-6">
                   I&apos;m always interested in new opportunities and exciting
