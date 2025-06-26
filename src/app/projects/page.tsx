@@ -160,7 +160,7 @@ interface InputWithButtonProps {
   buttonText?: string
   buttonIcon?: React.ReactNode
   value?: string,
-  onChange: any,
+  onChange: (e:React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void,
   buttonClick?:() => void,
   type?: "search" | "email" | "text"
   disabled?: boolean

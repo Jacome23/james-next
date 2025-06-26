@@ -97,7 +97,7 @@ export default function Resourcing(){
 
   useEffect(() => {
     setContent(tempRows)
-  }, []);
+  });
 
   const tempRows: contentTypes[] = Array.from({ length: 100 }, (_, index) => ({
     state: false,
@@ -141,7 +141,13 @@ export default function Resourcing(){
       });;
 
       nested[itemIndex] = item;
-      row[type] = nested as any;
+      if (type === 'materials') {
+        row.materials = nested as materialPropTypes[];
+      } else if (type === 'people') {
+        row.people = nested as commonPropTypes[];
+      } else {
+        row.contractors = nested as commonPropTypes[];
+      }
       updated[rowIndex] = row;
       
       return updated;
@@ -176,7 +182,7 @@ export default function Resourcing(){
         <TabsContent value="resources">
           <div className="flex items-center bg-muted/50 px-4 py-2 text-sm font-medium">
             <div className="w-10" />
-            <div>This is currently in Development. It's just a table I designed. I hope you like it.</div>
+            <div>This is currently in Development. It&apos;s just a table I designed. I hope you like it.</div>
           </div>
           <ScrollArea className="h-[60vh]">
             <div className="min-w-[1000px]">

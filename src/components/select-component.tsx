@@ -66,7 +66,7 @@ export function CustomSelect({
     onValueChange?.(newValue)
   }
 
-  const handleRemove = (valueToRemove: string, e: React.MouseEvent) => {
+  const handleRemove = (valueToRemove: string, e: React.MouseEvent | React.KeyboardEvent) => {
     e.stopPropagation()
     if (multiple && Array.isArray(currentValue)) {
       const newValue = currentValue.filter((v) => v !== valueToRemove)
@@ -130,7 +130,7 @@ export function CustomSelect({
                     className="ml-1 ring-offset-background rounded-full outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
                     onKeyDown={(e) => {
                       if (e.key === "Enter") {
-                        handleRemove(option.value, e as any)
+                        handleRemove(option.value, e)
                       }
                     }}
                     onMouseDown={(e) => {
