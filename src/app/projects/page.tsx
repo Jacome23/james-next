@@ -5,8 +5,9 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { MoreHorizontal, Calendar, Users, DollarSign, Search, Plus } from "lucide-react"
+import { MoreHorizontal, Calendar, Users, DollarSign, Plus } from "lucide-react"
 import { useState } from "react"
+import { Input } from "@/components/ui/input"
 
 const projects = [
   {
@@ -153,6 +154,69 @@ const getPriorityColor = (priority: string) => {
   }
 }
 
+
+interface InputWithButtonProps {
+  placeholder?: string
+  buttonText?: string
+  buttonIcon?: React.ReactNode
+  value?: string,
+  onChange: any,
+  buttonClick?:() => void,
+  type?: "search" | "email" | "text"
+  disabled?: boolean
+  position?: "prepend" | "append"
+}
+
+function InputWithButton({
+  placeholder = "Enter text...",
+  buttonText = "Submit",
+  buttonIcon,
+  buttonClick,
+  value,
+  onChange,
+  type = "text",
+  disabled = false,
+  position = "append",
+}: InputWithButtonProps) {
+
+  return (
+    <div className="flex w-full max-w-sm items-center space-x-0">
+      {position === "prepend" ? (
+        <>
+          <Button disabled={disabled} className="rounded-r-none border-r-0" onClick={buttonClick}>
+            {buttonIcon && <span className="mr-1">{buttonIcon}</span>}
+            {buttonText}
+          </Button>
+          <Input
+            type={type}
+            placeholder={placeholder}
+            value={value}
+            onChange={onChange}
+            disabled={disabled}
+            className="rounded-l-none border-l-0 focus-visible:ring-0 focus-visible:ring-offset-0"
+          />
+        </>
+      ) : (
+        <>
+          <Input
+            type={type}
+            placeholder={placeholder}
+            value={value}
+            onChange={onChange}
+            disabled={disabled}
+            className="rounded-r-none border-r-0 focus-visible:ring-0 focus-visible:ring-offset-0"
+          />
+          <Button disabled={disabled} className="rounded-l-none border-l-0" onClick={buttonClick}>
+            {buttonIcon && <span className="mr-1">{buttonIcon}</span>}
+            {buttonText}
+          </Button>
+        </>
+      )}
+    </div>
+  )
+}
+
+
 export default function Projects() {
   const [searchTerm, setSearchTerm] = useState("")
   return (
@@ -162,20 +226,16 @@ export default function Projects() {
           <h1 className="text-3xl font-bold tracking-tight">Projects</h1>
         </div>
         <div className="flex items-center space-x-2">
-          <Button size="sm">
-            <Plus className="h-4 w-4 mr-2" />
-            Add Project
-          </Button>
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
-            <input
-              type="text"
-              placeholder="Search projects..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-64"
-            />
-          </div>
+          <InputWithButton
+            placeholder="Search for anything..."
+            buttonText="Add Project"
+            buttonIcon={<Plus className="h-4 w-4" />}
+            value={searchTerm}
+            onChange={(e:React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => setSearchTerm(e.target.value)}
+            type="search"
+            position="prepend"
+            buttonClick={()=>console.log('test')}
+          />
         </div>
       </div>
 

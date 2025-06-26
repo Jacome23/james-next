@@ -13,7 +13,7 @@ import { Progress } from "@/components/ui/progress"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
 import Image from "next/image"
-import { DialogOut } from "./dialog"
+import { DialogOut } from "./email-dialog"
 
 const Me = () => {
   return (
@@ -146,7 +146,7 @@ const skillCategories = [
       { name: "Docker", level: 60 },
       { name: "AWS", level: 60 },
       { name: "Figma", level: 70 },
-      { name: "PowerApps", level: 80},
+      { name: "PowerApps", level: 70},
       { name: "Cypress", level: 50}
     ],
   },
@@ -222,7 +222,7 @@ const Projects = () => {
           {projects.map((project, index) => (
             <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow">
               <div className="relative h-48 overflow-hidden">
-                <Image src={project.image} alt={project.title} fill className="object-cover" />
+                <Image src={project.image} alt={project.title} fill className="object-contain" />
               </div>
 
               <CardHeader>

@@ -1,6 +1,6 @@
 "use client"
 
-import { Home, Inbox, GitGraphIcon } from "lucide-react"
+import { Home, Inbox, GitGraphIcon, UsersRound } from "lucide-react"
 import Link from "next/link"
 
 import {
@@ -29,6 +29,11 @@ const items = [
     title: "Sample Projects",
     url: "/projects",
     icon: Inbox,
+  },
+  {
+    title: "Sample Finance Table",
+    url: "/finance",
+    icon: UsersRound,
   },
 ]
 

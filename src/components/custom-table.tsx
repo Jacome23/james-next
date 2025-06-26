@@ -17,7 +17,7 @@ export default function CustomTable() {
   const containerRef = useRef<HTMLDivElement>(null)
 
   const ROWS = 1000
-  const COLS = 15
+  const COLS = 200
   const ROW_HEIGHT = 32
   const VISIBLE_ROWS = Math.ceil(window?.innerHeight / ROW_HEIGHT) || 30
   const BUFFER_ROWS = 5
@@ -126,28 +126,6 @@ export default function CustomTable() {
 
   return (
     <div className="h-screen bg-white flex flex-col">
-      {/* Excel-like toolbar */}
-      <div className="bg-gray-100 border-b border-gray-300 p-2 flex items-center gap-2">
-        <div className="text-sm font-medium">Excel Clone - 1000 Rows</div>
-        <div className="ml-auto text-sm text-gray-600">
-          {selectedCell && `Selected: ${selectedCell}`}
-          <span className="ml-4 text-xs">Numbers only • 2 decimals • Red {">"}40 • Green =40</span>
-        </div>
-      </div>
-
-      {/* Formula bar */}
-      <div className="bg-white border-b border-gray-300 p-2 flex items-center gap-2">
-        <div className="w-16 text-sm font-medium text-gray-600">{selectedCell || "A1"}</div>
-        <div className="flex-1">
-          <Input
-            value={selectedCell ? cellData[selectedCell] || "" : ""}
-            onChange={(e) => selectedCell && handleCellChange(selectedCell, e.target.value)}
-            className="border-0 focus-visible:ring-0 focus-visible:ring-offset-0"
-            placeholder="Enter number (up to 2 decimals)..."
-          />
-        </div>
-      </div>
-
       {/* Spreadsheet container */}
       <div className="flex-1 overflow-hidden">
         <div className="flex h-full">
@@ -249,18 +227,6 @@ export default function CustomTable() {
               </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Status bar */}
-      <div className="bg-gray-100 border-t border-gray-300 p-1 text-xs text-gray-600 flex items-center justify-between">
-        <div>Ready - Virtualized View</div>
-        <div className="flex gap-4">
-          <span>Cells: {Object.keys(cellData).length}</span>
-          <span>Rows: {ROWS}</span>
-          <span>
-            Visible: {startRow + 1}-{endRow}
-          </span>
         </div>
       </div>
     </div>
