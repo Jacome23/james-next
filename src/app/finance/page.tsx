@@ -97,7 +97,7 @@ export default function Resourcing(){
 
   useEffect(() => {
     setContent(tempRows)
-  });
+  },[]);
 
   const tempRows: contentTypes[] = Array.from({ length: 100 }, (_, index) => ({
     state: false,
@@ -107,6 +107,7 @@ export default function Resourcing(){
     people: structuredClone(people),
     contractors: structuredClone(contractors)
   }));
+
 
   const handleDropDown = (index:number) => {
     const updated = content.map((item, i) =>
